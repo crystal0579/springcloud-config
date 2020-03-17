@@ -1,0 +1,46 @@
+
+
+---
+server:
+  port: 8201
+
+#spring配置
+spring:
+  profiles: dev
+  application:
+    name: springcloud-provider-dept #也是Eureka 网页上的服务列表的application name
+
+
+#Eureka 配置 表明服务要注册到哪里
+eureka:
+  client:
+    service-url:
+      #单机模式
+      #defaultZone: http://localhost:7001/eureka/
+      #集群模式 其实改不改都无所谓
+      #defaultZone: http://eureka7001.com:7001/eureka/
+      #集群模式 这好写成这样更安全，更好，尽管效果相同(在7001，7002，7003都启动的情况下)，但是如果只启动了7002和7003，如果像上一行只写了7001，那么provider的微服务启来也注册不上去
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+
+---
+server:
+  port: 8202
+
+#spring配置
+spring:
+  profiles: test
+  application:
+    name: springcloud-provider-dept #也是Eureka 网页上的服务列表的application name
+
+
+#Eureka 配置 表明服务要注册到哪里
+eureka:
+  client:
+    service-url:
+      #单机模式
+      #defaultZone: http://localhost:7001/eureka/
+      #集群模式 其实改不改都无所谓
+      #defaultZone: http://eureka7001.com:7001/eureka/
+      #集群模式 这好写成这样更安全，更好，尽管效果相同(在7001，7002，7003都启动的情况下)，但是如果只启动了7002和7003，如果像上一行只写了7001，那么provider的微服务启来也注册不上去
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+
