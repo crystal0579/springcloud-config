@@ -3,8 +3,7 @@ spring:
     active: dev
     
 #就是这么写的分割动态
-#一般注册中心地址都是一样的
-#这里是为了 springcloud-config的效果演示
+#一般注册中心地址哪个环境都是一样的， 一个module (project) 不论开发或测试都是一样的
 ---
 
 server:
@@ -34,7 +33,7 @@ eureka:
 ---
 
 server:
-  port: 7011
+  port: 7001
   
 #spring配置
 spring:
@@ -54,4 +53,4 @@ eureka:
       #这是单机的写法
       #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/  # 算是向外界提供的注册中心的地址，可以从EurekaClientConfigBean的源码无参构造方法里获知,网页端可以直接访问  http://localhost:7001/
       #这是集群的写法 （需要关联别的server）
-      defaultZone: http://eureka7002.com:7012/eureka/,http://eureka7003.com:7013/eureka/
+      defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
